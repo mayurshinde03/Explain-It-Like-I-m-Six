@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning About... - Explain Like I'm 6</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <button class="back-btn" onclick="goHome()">
+                ← Back to Home
+            </button>
+            <div class="nav-logo">🎯 Explain Like I'm 6</div>
+        </nav>
+
+        <!-- Concept Display -->
+        <main class="concept-page">
+            <div class="concept-header" id="conceptHeader">
+                <div class="concept-icon" id="conceptIcon">🤔</div>
+                <h1 class="concept-title" id="conceptTitle">Loading...</h1>
+                <p class="concept-subtitle" id="conceptSubtitle">Preparing your explanation...</p>
+            </div>
+
+            <!-- Visual Placeholder -->
+            <div class="visual-section" id="visualSection">
+                <div class="visual-placeholder">
+                    <div class="comic-panel">
+                        <div class="comic-character">🤖</div>
+                        <div class="speech-bubble">
+                            <p id="visualPrompt">Creating a picture to help explain this...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explanation Content -->
+            <div class="explanation-section">
+                <div class="explanation-card">
+                    <div class="loading-explanation" id="loadingExplanation">
+                        <div class="thinking-dots">
+                            <span>🤔</span>
+                            <span>💭</span>
+                            <span>💡</span>
+                        </div>
+                        <p>Thinking of the simplest way to explain this...</p>
+                    </div>
+                    
+                    <div class="explanation-content" id="explanationContent" style="display: none;">
+                        <div class="explanation-text" id="explanationText">
+                            <!-- AI explanation will appear here -->
+                        </div>
+                        <div class="explanation-meta">
+                            <span class="word-count" id="wordCount"></span>
+                            <span class="generation-time" id="generationTime"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="action-btn primary" onclick="askAnother()">
+                        🤔 Ask About Something Else
+                    </button>
+                    <button class="action-btn secondary" onclick="explainAgain()">
+                        🔄 Explain Differently
+                    </button>
+                    <button class="action-btn secondary" onclick="getRandomConcept()">
+                        🎲 Random Concept
+                    </button>
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div class="error-state" id="errorState" style="display: none;">
+                <div class="error-icon">😅</div>
+                <h3>Oops! Something went wrong</h3>
+                <p id="errorMessage">I couldn't explain that right now. Let's try again!</p>
+                <button class="retry-btn" onclick="retryExplanation()">
+                    🔄 Try Again
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="scripts/concept.js"></script>
+</body>
+</html>

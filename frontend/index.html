@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explain Like I'm 6 - Simple Explanations for Everyone!</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1 class="logo">🎯 Explain Like I'm 6</h1>
+                <p class="tagline">Simple explanations for complex things!</p>
+                <div class="mascot">🧠✨</div>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <h2>Ask me to explain anything!</h2>
+                <div class="search-box">
+                    <input type="text" id="customSearch" placeholder="Type something you want to understand..." maxlength="100">
+                    <button id="searchBtn">🔍 Explain!</button>
+                </div>
+                <div class="search-suggestions">
+                    <span>Try asking about:</span>
+                    <button class="suggestion-btn" data-topic="How do dreams work?">Dreams</button>
+                    <button class="suggestion-btn" data-topic="Why is the sky blue?">Sky Color</button>
+                    <button class="suggestion-btn" data-topic="How do magnets work?">Magnets</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Concepts -->
+        <section class="concepts-section">
+            <h2>🌟 Popular Concepts</h2>
+            <p class="section-subtitle">Pick a concept to learn about!</p>
+            
+            <div class="loading" id="conceptsLoading">
+                <div class="spinner">🔄</div>
+                <p>Loading awesome concepts...</p>
+            </div>
+            
+            <div class="concepts-grid" id="conceptsGrid">
+                <!-- Concepts will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>🎈 Made with love for curious minds!</p>
+                <div class="footer-icons">
+                    <span>🧒</span>
+                    <span>👧</span>
+                    <span>🧠</span>
+                    <span>💡</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Loading Modal -->
+    <div class="modal" id="loadingModal">
+        <div class="modal-content">
+            <div class="loading-animation">
+                <div class="bounce">🤖</div>
+                <h3>Thinking like a 6-year-old...</h3>
+                <p>Creating a super simple explanation just for you!</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
