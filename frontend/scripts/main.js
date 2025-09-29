@@ -1,5 +1,6 @@
 // Configuration
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://explain-it-like-i-m-six.onrender.com/api';
+
 
 // DOM Elements
 const conceptsGrid = document.getElementById('conceptsGrid');
