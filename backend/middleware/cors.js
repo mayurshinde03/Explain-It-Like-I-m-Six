@@ -6,28 +6,45 @@ const corsOptions = {
             'http://localhost:3000',
             'http://127.0.0.1:5500',
             'http://localhost:5500',
-            'https://explain-it-like-i-m-six.vercel.app',  // ⭐ Your Vercel URL
+            'https://explain-it-like-i-m-six.vercel.app',  // Your main Vercel URL
             'https://explain-it-like-i-m-six-git-main-mgshis-projects.vercel.app', // Git branch URL
-            'https://explain-it-like-i-m-six-*.vercel.app' // Wildcard for preview deployments
+            'https://explain-it-like-i-m-six.vercel.app/',  // With trailing slash
+            'https://explain-it-like-i-m-six-mgshis-projects.vercel.app', // Alternative format
         ];
         
-        // Allow requests with no origin (like mobile apps or Postman)
-        if (!origin || allowedOrigins.some(allowedOrigin => {
-            if (allowedOrigin.includes('*')) {
-                const pattern = allowedOrigin.replace('*', '.*');
-                return new RegExp(pattern).test(origin);
-            }
-            return allowedOrigin === origin;
-        })) {
-            callback(null, true);
-        } else {
-            console.log('CORS blocked origin:', origin);
-            callback(new Error('Not allowed by CORS'));
+        // Allow requests with no origin (like mobile apps, Postman, or direct server calls)
+        if (!origin) {
+            console.log('✅ No origin header - allowing request');
+            return callback(null, true);
         }
+
+        // Check exact matches first
+        if (allowedOrigins.includes(origin)) {
+            console.log('✅ CORS allowed for origin:', origin);
+            return callback(null, true);
+        }
+
+        // Check wildcard patterns for Vercel preview deployments
+        const vercelPattern = /^https:\/\/explain-it-like-i-m-six.*\.vercel\.app$/;
+        if (vercelPattern.test(origin)) {
+            console.log('✅ CORS allowed for Vercel preview:', origin);
+            return callback(null, true);
+        }
+
+        // Block other origins
+        console.log('❌ CORS blocked origin:', origin);
+        callback(new Error('Not allowed by CORS'));
     },
-    credentials: true,
+    credentials: false, // Changed to false for better compatibility
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+    allowedHeaders: [
+        'Content-Type', 
+        'Authorization', 
+        'X-Requested-With',
+        'Accept',
+        'Origin'
+    ],
+    optionsSuccessStatus: 200 // For legacy browser support
 };
 
 module.exports = cors(corsOptions);
