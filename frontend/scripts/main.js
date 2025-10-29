@@ -1,5 +1,5 @@
 // Configuration
-const API_BASE_URL = 'https://explain-it-like-i-m-six.onrender.com/api';
+const API_BASE_URL = 'https://explain-it-like-i-m-six-1.onrender.com/api';
 
 
 // DOM Elements
